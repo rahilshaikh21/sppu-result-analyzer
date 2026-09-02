@@ -1,8 +1,43 @@
+# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# Virtual environments
 .venv/
 venv/
+env/
+ENV/
+
+# Environment / secrets
 .env
+.envrc
+
+# Result PDFs / private result data
 backend/uploads/*.pdf
-.DS_Store
 backend/raw_result.txt
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+
+# Testing / coverage
+.pytest_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tempCodeRunnerFile.py
