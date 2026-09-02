@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SPPU Result Analyzer</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="dashboard-header">
+
+            <div class="header-left">
+
+                <div class="brand-icon">
+                    🎓
+                </div>
+
+                <div>
+                    <h1>SPPU Result Analyzer</h1>
+
+                    <p>
+                        Student Result Analysis & Ranking Dashboard
+                    </p>
+                </div>
+
+            </div>
+
+            <a
+                href="index.html"
+                class="back-btn"
+            >
+                + Upload New Result
+            </a>
+
+        </header>
+
+
+        <!-- ================= STATISTICS ================= -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👨‍🎓
+                </div>
+
+                <div>
+                    <span>Total Students</span>
+
+                    <strong id="totalStudents">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <span>Passed</span>
+
+                    <strong id="passedStudents">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    !
+                </div>
+
+                <div>
+                    <span>Failed</span>
+
+                    <strong id="failedStudents">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <div>
+                    <span>Total Backlogs</span>
+
+                    <strong id="totalBacklogs">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏆
+                </div>
+
+                <div>
+                    <span>Highest SGPA</span>
+
+                    <strong id="highestSGPA">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📈
+                </div>
+
+                <div>
+                    <span>Average SGPA</span>
+
+                    <strong id="averageSGPA">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+     PERFORMANCE ANALYTICS
+========================================================= -->
+
+<section class="analytics-section">
+
+    <button
+        type="button"
+        class="analytics-toggle"
+        id="analyticsToggle"
+    >
+
+        <div class="analytics-title">
+
+            <div class="analytics-icon">
+                📊
+            </div>
+
+            <div>
+                <h2>Performance Analytics</h2>
+
+                <p>
+                    Visual analysis of student results and academic performance
+                </p>
+            </div>
+
+        </div>
+
+        <span
+            class="analytics-arrow"
+            id="analyticsArrow"
+        >
+            ▼
+        </span>
+
+    </button>
+
+
+    <div
+        class="analytics-content"
+        id="analyticsContent"
+    >
+
+        <div class="charts-grid">
+
+            <div class="chart-card">
+
+                <div class="chart-card-header">
+                    <h3>Result Distribution</h3>
+
+                    <p>
+                        Overall PASS and FAIL students
+                    </p>
+                </div>
+
+                <div class="chart-container chart-small">
+                    <canvas id="resultChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <div class="chart-card-header">
+                    <h3>Student SGPA Comparison</h3>
+
+                    <p>
+                        Student-wise SGPA performance
+                    </p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="sgpaChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <div class="chart-card-header">
+                    <h3>Grade Distribution</h3>
+
+                    <p>
+                        Distribution of grades across all subjects
+                    </p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="gradeChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <div class="chart-card-header">
+                    <h3>Semester Performance</h3>
+
+                    <p>
+                        Average SGPA across semesters
+                    </p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="semesterChart"></canvas>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Detailed Statistics -->
+
+        <div class="analytics-summary">
+
+            <div class="analytics-stat">
+                <span>Pass Percentage</span>
+                <strong id="analyticsPassPercentage">0%</strong>
+            </div>
+
+            <div class="analytics-stat">
+                <span>Fail Percentage</span>
+                <strong id="analyticsFailPercentage">0%</strong>
+            </div>
+
+            <div class="analytics-stat">
+                <span>Average SGPA</span>
+                <strong id="analyticsAverageSGPA">0.00</strong>
+            </div>
+
+            <div class="analytics-stat">
+                <span>Highest SGPA</span>
+                <strong id="analyticsHighestSGPA">0.00</strong>
+            </div>
+
+            <div class="analytics-stat">
+                <span>Total Backlogs</span>
+                <strong id="analyticsBacklogs">0</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STUDENT PERFORMANCE
+========================================================= -->
+
+<section class="section-header">
+
+    <div>
+
+        <h2>
+            Student Performance
+        </h2>
+
+        <p>
+            Complete student-wise result analysis
+        </p>
+
+    </div>
+
+</section>
+
+
+        <!-- ================= FILTER BAR ================= -->
+
+        <section class="filter-bar">
+
+            <div class="search-box">
+
+                <span>🔎</span>
+
+                <input
+                    type="text"
+                    id="studentSearch"
+                    placeholder="Search student name, PRN or seat number..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <select id="resultFilter">
+
+                <option value="ALL">
+                    All Results
+                </option>
+
+                <option value="PASS">
+                    Passed
+                </option>
+
+                <option value="FAIL">
+                    Failed
+                </option>
+
+            </select>
+
+
+            <select id="semesterFilter">
+
+                <option value="ALL">
+                    All Semesters
+                </option>
+
+            </select>
+
+
+            <button
+                type="button"
+                id="clearFilters"
+                class="clear-filter-btn"
+            >
+                Clear
+            </button>
+
+        </section>
+
+
+        <!-- ================= TABLE ================= -->
+
+        <section class="table-container">
+
+            <div class="table-header">
+
+                <div>
+
+                    <h3>
+                        Student Rankings
+                    </h3>
+
+                    <p id="studentCount">
+                        0 students
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Rank
+                            </th>
+
+                            <th>
+                                Student
+                            </th>
+
+                            <th>
+                                PRN
+                            </th>
+
+                            <th>
+                                Semester
+                            </th>
+
+                            <th>
+                                SGPA
+                            </th>
+
+                            <th>
+                                Result
+                            </th>
+
+                            <th>
+                                Backlogs
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="studentTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                SPPU Result Analyzer
+            </span>
+
+            <span>
+                Result data extracted from uploaded PDF
+            </span>
+
+        </footer>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

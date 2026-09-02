@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+backend/uploads/*.pdf
+.DS_Store
+backend/raw_result.txt

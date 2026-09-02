@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SPPU Result Analyzer</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>SPPU Result Analyzer</h1>
+
+        <p class="subtitle">
+            Automated SPPU Result Analysis and Ranking System
+        </p>
+
+        <div class="upload-box">
+
+            <h2>Upload Result PDF</h2>
+
+            <input
+                type="file"
+                id="pdfFile"
+                accept=".pdf,application/pdf"
+            >
+
+            <button id="uploadBtn">
+                Upload & Analyze
+            </button>
+
+            <p id="status"></p>
+
+        </div>
+
+    </div>
+
+    <script src="js/api.js"></script>
+</body>
+</html>
